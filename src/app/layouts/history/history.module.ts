@@ -7,10 +7,16 @@ import { MaterialModule } from '../../material/material.module';
 
 import { HistoryComponent } from './history.component';
 import { HistoryRoutingModule } from './history-routing.module';
+import { FlexModule } from '@angular/flex-layout';
+import { HistoryChartComponent } from './components/history-chart/history-chart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { HistoryTableComponent } from './components/history-table/history-table.component';
 
 @NgModule({
   declarations: [
-    HistoryComponent
+    HistoryComponent,
+    HistoryChartComponent,
+    HistoryTableComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +24,9 @@ import { HistoryRoutingModule } from './history-routing.module';
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,
-    HistoryRoutingModule
+    HistoryRoutingModule,
+    FlexModule,
+    HighchartsChartModule
   ]
 })
 export class HistoryModule { }

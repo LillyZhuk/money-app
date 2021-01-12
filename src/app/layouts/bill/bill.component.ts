@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { forkJoin, Subscription } from 'rxjs';
 import { BillService } from '../../shared/services/bill.service';
-import { Bill } from '../../shared/interfaces/bill';
+import { IBill, ICurrency } from '../../shared/interfaces/bill';
 
 @Component({
   selector: 'app-bill',
@@ -10,8 +10,8 @@ import { Bill } from '../../shared/interfaces/bill';
 })
 export class BillComponent implements OnInit, OnDestroy {
 
-  public currency: any;
-  public bill: any;
+  public currency: ICurrency;
+  public bill: IBill;
   public isLoaded: boolean = false;
   private sub: Subscription = new Subscription();
 
@@ -19,9 +19,9 @@ export class BillComponent implements OnInit, OnDestroy {
     private billService: BillService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.sub.add(
-      forkJoin<Bill, any>([
+      forkJoin<IBill, ICurrency>([
         this.billService.getBill(),
         this.billService.getCurrency()
       ]

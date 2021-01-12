@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Bill } from '../interfaces/bill';
+import { IBill, ICurrency } from '../interfaces/bill';
 
 
 
@@ -14,15 +14,15 @@ export class BillService {
     private http: HttpClient
   ) { }
 
-  getBill(): Observable<Bill> {
-    return this.http.get<Bill>(`http://localhost:3000/bill`);
+  public getBill(): Observable<IBill> {
+    return this.http.get<IBill>(`http://localhost:3000/bill`);
   }
 
-  updateBill(bill: Bill): Observable<Bill> {
-    return this.http.put<Bill>('bill', bill);
+  public updateBill(bill: IBill): Observable<IBill> {
+    return this.http.put<IBill>('bill', bill);
   }
 
-  getCurrency(): Observable<any> {
-    return this.http.get<any>(`http://data.fixer.io/api/latest?access_key=156f43c852d2eb2cdca7a4ba965e720a`);
+  public getCurrency(): Observable<ICurrency> {
+    return this.http.get<ICurrency>(`http://data.fixer.io/api/latest?access_key=156f43c852d2eb2cdca7a4ba965e720a`);
   }
 }

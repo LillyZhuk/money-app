@@ -1,1 +1,18 @@
-<p>history works!</p>
+<div class="history-page-container">
+  <div class="title-block" fxLayoutAlign="space-between center" >
+    <h3 class="title pull-left">
+      Страница истории <span class="sparkline bar"></span>
+    </h3>
+  </div>
+
+  <section class="section">
+    <app-history-chart *ngIf="chartData && chartData.length" [data]="chartData"></app-history-chart>
+
+    <app-history-table *ngIf="filteredEvents && filteredEvents.length"
+                       [categories]="categories"
+                       [events]="filteredEvents"
+    ></app-history-table>
+  </section>
+</div>
+
+

@@ -1,0 +1,18 @@
+<section class="section">
+  <div class="row">
+    <div class="col-xs-12 text-center chart-center">
+<!--      <ngx-charts-pie-chart-->
+<!--        [view]="[645, 455]"-->
+<!--        [results]="data"-->
+<!--        [legend]="false"-->
+<!--        [labels]="true"-->
+<!--        [doughnut]="true">-->
+<!--      </ngx-charts-pie-chart>-->
+      <highcharts-chart
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+        style="width: 100%; display: block;"
+      ></highcharts-chart>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { IBill, ICurrency } from '../../../../shared/interfaces/bill';
 
 @Component({
   selector: 'app-bill-card',
@@ -12,8 +13,8 @@ export class BillCardComponent implements OnInit {
   public dollar: number;
   public hryvnia: number;
 
-  @Input() bill: any;
-  @Input() currency: any;
+  @Input() bill: IBill;
+  @Input() currency: ICurrency;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -29,7 +30,7 @@ export class BillCardComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     const {rates} = this.currency;
     this.dollar = rates['USD'] * this.bill.value;
     this.hryvnia = rates['UAH'] * this.bill.value;

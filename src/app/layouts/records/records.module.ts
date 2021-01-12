@@ -7,6 +7,7 @@ import { MaterialModule } from '../../material/material.module';
 
 import { RecordsComponent } from './records.component';
 import { RecordsRoutingModule } from './records-routing.module';
+import { FlexModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RecordsRoutingModule } from './records-routing.module';
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,
-    RecordsRoutingModule
+    RecordsRoutingModule,
+    FlexModule
   ]
 })
 export class RecordsModule { }

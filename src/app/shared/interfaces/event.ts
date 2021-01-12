@@ -1,0 +1,9 @@
+export interface IEvent {
+  id?: number;
+  type: string;
+  amount: number;
+  category: number;
+  date: string;
+  description: string;
+  catName?: string;
+}

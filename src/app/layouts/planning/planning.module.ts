@@ -7,6 +7,7 @@ import { MaterialModule } from '../../material/material.module';
 
 import { PlanningComponent } from './planning.component';
 import { PlanningRoutingModule } from './planning-routing.module';
+import { FlexModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PlanningRoutingModule } from './planning-routing.module';
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,
-    PlanningRoutingModule
+    PlanningRoutingModule,
+    FlexModule
   ]
 })
 export class PlanningModule { }

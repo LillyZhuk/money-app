@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
-    RouterModule
+    RouterModule,
+    HighchartsChartModule
   ],
     providers: [],
   exports: [
