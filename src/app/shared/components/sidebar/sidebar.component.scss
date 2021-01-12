@@ -1,0 +1,24 @@
+:host {
+  .mat-icon {
+    margin-right: 20px;
+    vertical-align: middle;
+  }
+
+  .profile-card {
+    text-align: center;
+    padding: 0 20px 20px;
+
+    img {
+      border-radius: 50%;
+      height: 100px;
+      object-fit: cover;
+      width: 100px;
+    }
+  }
+
+  a.mat-list-item.mat-focus-indicator.list-item-active {
+    font-weight: 600;
+    color: white;
+    background: #3f51b5;
+  }
+}

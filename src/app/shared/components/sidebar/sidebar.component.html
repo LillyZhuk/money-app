@@ -1,0 +1,21 @@
+<mat-nav-list>
+  <div class="profile-card">
+    <div class="header">
+      <h2>{{user?.name}}</h2>
+      <h4>{{user?.email}}</h4>
+    </div>
+    <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Shiba In">
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h2 matSubheader>Страницы</h2>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/bill">Страница счета</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/history">Страница истории</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/planning">Страница планирования</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/records">Страница записей</a>
+
+  <mat-divider></mat-divider>
+
+</mat-nav-list>

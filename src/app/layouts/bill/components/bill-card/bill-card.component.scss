@@ -1,0 +1,34 @@
+mat-card.example-card {
+  height: 240px;
+
+  .title {
+    font-size: 1.1rem;
+    color: #4f5f6f;
+  }
+
+  .mat-card-content {
+    height: 84%;
+
+    .bills-container {
+      height: 100%;
+
+      .bill-container {
+        margin-bottom: 10px;
+      }
+
+      mat-divider {
+        border-top-color: #3f51b5;
+        margin: 0 16px;
+      }
+    }
+  }
+}
+
+.value {
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.mat-card .mat-divider-horizontal {
+  width: 95%;
+}

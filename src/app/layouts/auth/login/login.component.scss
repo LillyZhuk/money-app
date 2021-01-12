@@ -1,0 +1,23 @@
+.text-xs-center {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner-wrapper {
+  position: absolute;
+  z-index: 999;
+  top: 56%;
+  left: 45%;
+}
+
+.show-massage {
+  margin-bottom: 15px;
+  width: 100%;
+  background: red;
+  padding: 10px 0;
+  color: aliceblue;
+}
+
+.input-wrapp {
+  width: 100%;
+}

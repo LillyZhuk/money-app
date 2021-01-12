@@ -1,0 +1,43 @@
+<div class="spinner-wrapper" fxLayoutAlign="center center">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+
+<p class="text-xs-center">Войдите для работы</p>
+<div class="show-massage" fxLayoutAlign="center center" *ngIf="message">{{message}}</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group" [ngClass]="{'has-error' : form.get('email').invalid && form.get('email').touched}">
+    <mat-form-field class="input-wrapp">
+      <mat-label>Почта</mat-label>
+      <input matInput id="email" type="email" formControlName="email" placeholder="Ex.pat@example.com">
+      <mat-error class="form-help-text" *ngIf="form.get('email').invalid && form.get('email').touched">
+        <mat-error *ngIf="form.get('email')['errors']['required']">Email не может быть пустым</mat-error>
+        <mat-error *ngIf="form.get('email')['errors']['email']">Введите корректный email</mat-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error' : form.get('password').invalid && form.get('password').touched}">
+    <mat-form-field class="input-wrapp">
+      <mat-label>Пароль</mat-label>
+      <input matInput id="password" type="password" placeholder="Пароль" formControlName="password">
+      <mat-error class="form-help-text" *ngIf="form.get('password').invalid && form.get('password').touched">
+      <mat-error *ngIf="form.get('password')['errors']['required']">Пароль не может быть пустым</mat-error>
+      <mat-error *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">
+        Пароль должен быть больше
+        {{ form.get('password')['errors']['minlength']['requiredLength'] }}
+        символов. Сейчас {{ form.get('password')['errors']['minlength']['actualLength'] }}.
+      </mat-error>
+    </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <button mat-button color="primary" type="submit" class="btn btn-block btn-primary">Войти</button>
+  </div>
+
+  <div class="form-group">
+    <p class="text-muted text-xs-center">
+      Нет аккаунта? <a [routerLink]="'/registration'"> Зарегистрироваться!</a>
+    </p>
+  </div>
+</form>

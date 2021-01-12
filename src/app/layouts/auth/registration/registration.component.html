@@ -1,0 +1,58 @@
+<p class="text-xs-center">Регистрация для получения доступа</p>
+<form [formGroup]="form" (ngSubmit)="OnSubmit()">
+  <div class="form-group"
+       [ngClass]="{'has-error' : form.get('email').invalid && form.get('email').touched}">
+    <mat-form-field class="input-wrapp">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" id="email" placeholder="Введите email" formControlName="email">
+      <span class="form-help-text" *ngIf="form.get('email').invalid && form.get('email').touched">
+      <mat-error *ngIf="form.get('email')['errors']['required']">Email не может быть пустым</mat-error>
+      <mat-error *ngIf="form.get('email')['errors']['email']">Введите корректный email</mat-error>
+    </span>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error' : form.get('password').invalid && form.get('password').touched}">
+    <mat-form-field class="input-wrapp">
+      <mat-label>Пароль</mat-label>
+      <input matInput id="password" type="password" placeholder="Пароль" formControlName="password">
+      <mat-error class="form-help-text" *ngIf="form.get('password').invalid && form.get('password').touched">
+        <mat-error *ngIf="form.get('password')['errors']['required']">Пароль не может быть пустым</mat-error>
+        <mat-error *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">
+          Пароль должен быть больше
+          {{ form.get('password')['errors']['minlength']['requiredLength'] }}
+          символов. Сейчас {{ form.get('password')['errors']['minlength']['actualLength'] }}.
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error' : form.get('name').invalid && form.get('name').touched}" >
+    <mat-form-field class="input-wrapp">
+      <mat-label>Имя</mat-label>
+      <input matInput id="name" type="text" placeholder="Пароль" formControlName="name">
+      <mat-error class="form-help-text" *ngIf="form.get('name').invalid && form.get('name').touched">
+        Имя не может быть пустым.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error' : form.get('agree').invalid && form.get('agree').touched}">
+<!--    <label for="agree">-->
+      <mat-checkbox class="example-margin" id="agree" formControlName="agree">Согласен с правилами</mat-checkbox>
+<!--      <input class="checkbox" id="agree" type="checkbox" formControlName="agree">-->
+<!--      <span>Согласен с правилами</span>-->
+<!--    </label>-->
+  </div>
+
+  <div class="form-group">
+    <button mat-button color="primary" type="submit" class="btn btn-block btn-primary" [disabled]="form.invalid">Зарегистрироваться</button>
+  </div>
+
+  <div class="form-group">
+    <p class="text-muted text-xs-center">
+      Уже есть аккаунт?
+      <a [routerLink]="'/login'">Войти!</a>
+    </p>
+  </div>
+</form>

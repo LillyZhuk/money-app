@@ -1,0 +1,18 @@
+<div class="title-block" fxLayoutAlign="space-between center" >
+  <h3 class="title pull-left">
+    Страница счета <span class="sparkline bar"></span>
+  </h3>
+  <div class="pull-right">
+    <button mat-icon-button (click)="onRefresh()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+</div>
+
+<section class="section">
+  <div class="text-center" *ngIf="!isLoaded">Loading...</div>
+  <div class="row" *ngIf="isLoaded" fxLayout="row" fxLayoutAlign="space-around center">
+    <app-bill-card fxFlex="49" [bill]="bill" [currency]="currency"></app-bill-card>
+    <app-currency-card fxFlex="49" [currency]="currency"></app-currency-card>
+  </div>
+</section>
