@@ -5,5 +5,11 @@
 </div>
 
 <section class="section">
+  <div fxLayout="row" fxLayoutAlign="space-between center" >
+    <button mat-flat-button color="primary" (click)="createEvent()">Добавить событие</button>
+    <button mat-flat-button color="primary" (click)="createCategory()">Добавить категорию</button>
+  </div>
+
+  <app-category-table *ngIf="categories" [categories]="categories"></app-category-table>
 
 </section>

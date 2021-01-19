@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.isAuthenticated;
+    return Boolean(localStorage.getItem('user'));
   }
 
   public watchStorage(): Observable<IStorageInfo> {

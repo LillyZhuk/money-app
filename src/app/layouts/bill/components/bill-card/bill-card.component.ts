@@ -22,11 +22,11 @@ export class BillCardComponent implements OnInit {
   ) {
     matIconRegistry.addSvgIcon(
       `dollar`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../../../assets/icons/dollar.svg`)
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/dollar.svg')
     );
     matIconRegistry.addSvgIcon(
       `hryvnia`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../../../assets/icons/hryvnia.svg`)
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/hryvnia.svg')
     );
   }
 

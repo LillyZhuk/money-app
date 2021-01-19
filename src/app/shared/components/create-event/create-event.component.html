@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-header bordered">
+    <div class="header-block">
+      <h3 class="title">Добавить событие</h3>
+    </div>
+  </div>
+  <div class="card-block">
+    <mat-error class="error-container" *ngIf="message">{{message}}</mat-error>
+    <form [formGroup]="form" fxLayout="column">
+      <mat-form-field class="form-group">
+        <mat-label class="control-label" for="e-select-category">Выберите категорию</mat-label>
+        <mat-select class="form-control" id="e-select-category" formControlName="category">
+          <mat-option *ngFor="let c of data" [value]="c.id">
+            {{c.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="form-group">
+        <mat-label class="control-label">Выберите тип</mat-label>
+        <br>
+        <div fxLayoutGap="20px">
+          <mat-radio-group formControlName="type">
+            <mat-radio-button *ngFor="let t of types" color="primary" [value]="t.type">{{t.label}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <mat-form-field class="form-group" [ngClass]="{'has-error': form.get('amount').invalid &&  form.get('amount').touched}">
+        <mat-label class="control-label" for="amount">Введите сумму</mat-label>
+        <input matInput type="number" value="0" id="amount" class="form-control" formControlName="amount" min="1" required>
+        <mat-error class="form-help-text" *ngIf=" form.get('amount').invalid &&  form.get('amount').touched">Поле обязательно для заполнения.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-group" [ngClass]="{'has-error':  form.get('description').invalid && form.get('description').touched}">
+        <mat-label class="control-label" for="description">Введите описание</mat-label>
+        <input matInput type="text" value="0" id="description" class="form-control" name="description" formControlName="description" required>
+        <mat-error class="form-help-text" *ngIf="form.get('description').invalid && form.get('description').touched">Поле обязательно для заполнения.</mat-error>
+      </mat-form-field>
+      <div class="buttons-block" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+        <button mat-flat-button type="submit" color="primary" [disabled]=""  (click)="createEvent()">Добавить</button>
+        <button mat-button (click)="closeDialog()">Закрыть</button>
+      </div>
+    </form>
+  </div>
+</div>

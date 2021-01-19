@@ -8,7 +8,7 @@
     }
   ],
   "bill": {
-    "value": 100,
+    "value": 100200,
     "currency": "EUR"
   },
   "categories": [
@@ -26,6 +26,21 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "capacity": 1060,
+      "name": "test3",
+      "id": 5
+    },
+    {
+      "capacity": 100,
+      "name": "test",
+      "id": 6
+    },
+    {
+      "capacity": 6000,
+      "name": "test-test",
+      "id": 7
     }
   ],
   "events": [
@@ -76,6 +91,22 @@
       "type": "outcome",
       "date": "20.06.2019 14:55:18",
       "id": 6
+    },
+    {
+      "date": "19.01.2021 20:36:24",
+      "type": "income",
+      "amount": 100,
+      "category": 6,
+      "description": "test",
+      "id": 7
+    },
+    {
+      "date": "19.01.2021 20:38:17",
+      "type": "income",
+      "amount": 100000,
+      "category": 2,
+      "description": "test",
+      "id": 8
     }
   ]
 }

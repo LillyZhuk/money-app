@@ -1,0 +1,12 @@
+table {
+  margin-top: 25px;
+  width: 100%;
+
+  td.mat-cell.mat-column-action {
+    width: 75px;
+  }
+
+  mat-icon {
+    cursor: pointer;
+  }
+}

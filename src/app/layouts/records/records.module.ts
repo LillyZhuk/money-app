@@ -8,10 +8,18 @@ import { MaterialModule } from '../../material/material.module';
 import { RecordsComponent } from './records.component';
 import { RecordsRoutingModule } from './records-routing.module';
 import { FlexModule } from '@angular/flex-layout';
+import { CategoryTableComponent } from './components/category-table/category-table.component';
+import { CreateCategoryComponent } from './components/create-category/create-category.component';
+import { EditCategoryComponent } from './components/edit-category/edit-category.component';
+import { DeleteCategoryComponent } from './components/delete-category/delete-category.component';
 
 @NgModule({
   declarations: [
-    RecordsComponent
+    RecordsComponent,
+    CategoryTableComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent,
+    DeleteCategoryComponent
   ],
   imports: [
     CommonModule,

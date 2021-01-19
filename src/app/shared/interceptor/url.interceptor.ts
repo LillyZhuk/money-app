@@ -11,6 +11,8 @@ export class UrlInterceptor implements HttpInterceptor {
         headers: request.headers.delete('skip')
       });
       return next.handle(request);
+    } else if (request.responseType === 'text') {
+      return next.handle(request);
     }
     if (!request.url.match(environment.host)) {
       request = request.clone({

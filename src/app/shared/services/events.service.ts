@@ -12,9 +12,9 @@ export class EventsService {
     private http: HttpClient
   ) { }
 
-  // addEvent(event: AppEvent): Observable<AppEvent> {
-  //   return this.post('events', event);
-  // }
+  createEvent(event: IEvent): Observable<IEvent> {
+    return this.http.post<IEvent>('events', event);
+  }
 
   public getEvents(): Observable<IEvent[]> {
     return this.http.get<IEvent[]>('events');

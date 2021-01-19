@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-header">
+    <div class="header-block">
+      <h3 class="title">Добавить категорию</h3>
+    </div>
+  </div>
+  <div class="card-block">
+    <form [formGroup]="form" fxLayout="column" >
+      <mat-form-field  class="form-group" [ngClass]="{'has-error': form.get('name').invalid && form.get('name').touched}">
+        <label class="control-label" for="category-name">Введите название</label>
+        <input matInput type="text" id="category-name" required formControlName="name" name="name" >
+        <mat-error class="form-help-text" *ngIf="form.get('name').invalid && form.get('name').touched">Название категории не может быть пустым</mat-error>
+      </mat-form-field >
+      <mat-form-field  class="form-group" [ngClass]="{'has-error': form.get('capacity').invalid && form.get('capacity').touched}">
+        <label class="control-label" for="category-value">Введите лимит</label>
+        <input matInput type="number" id="category-value" class="form-control" formControlName="capacity" min="1">
+        <mat-error class="form-help-text" *ngIf="form.get('capacity').invalid && form.get('capacity').touched">Поле не может быть пустым.</mat-error>
+      </mat-form-field >
+      <div class="buttons-block" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+        <button mat-flat-button type="submit" color="primary" [disabled]="form.invalid"  (click)="createCategory()">Добавить</button>
+        <button mat-button (click)="closeDialog()">Закрыть</button>
+      </div>
+
+    </form>
+  </div>
+</div>
