@@ -1,28 +1,30 @@
-import { Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs/operators';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public isLogin: boolean = false;
   public sideBarOpen: boolean = true;
 
   constructor(
-    private router: Router
-  ) {
-    this.checkRoute();
-  }
+    private authService: AuthService
+  ) { }
 
-  private checkRoute(): void {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event) => {
-      this.isLogin = event['url'] !== '/login';
-    });
+  public ngOnInit(): void {
+    this.isLogin = Boolean(localStorage.getItem('user'));
+
+    this.authService.watchStorage().pipe(
+      delay(0)
+    ).subscribe(
+      (info) => {
+        this.isLogin = Boolean(localStorage.getItem('user'));
+      }
+    );
   }
 
   public sideBarToggle(ev: Event): void {

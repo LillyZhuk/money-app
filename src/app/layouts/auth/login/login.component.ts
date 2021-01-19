@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
           const dataUser =  data['0'];
           if (dataUser) {
             if (dataUser.password === formData.password) {
-              localStorage.setItem('user', JSON.stringify(dataUser));
-              this.authService.isLogin.next(true);
+              this.authService.setItem('user', JSON.stringify(dataUser));
               this.authService.login();
               this.loading = false;
               this.router.navigate(['bill']);

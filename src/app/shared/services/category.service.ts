@@ -25,7 +25,7 @@ export class CategoryService {
   //   return this.put(`categories/${category.id}`, category) ;
   // }
   //
-  // getCategoryById(id: number): Observable<Category> {
-  //   return this.get(`categories/${id}`);
-  // }
+  getCategoryById(id: number): Observable<ICategory> {
+    return this.http.get<ICategory>(`http://localhost:3000/categories/${id}`);
+  }
 }

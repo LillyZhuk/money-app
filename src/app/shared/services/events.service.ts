@@ -20,7 +20,7 @@ export class EventsService {
     return this.http.get<IEvent[]>('http://localhost:3000/events');
   }
 
-  // getEventById(id: string): Observable<AppEvent> {
-  //   return this.get(`events/${id}`);
-  // }
+  getEventById(id: string): Observable<IEvent> {
+    return this.http.get<IEvent>(`http://localhost:3000/events/${id}`);
+  }
 }

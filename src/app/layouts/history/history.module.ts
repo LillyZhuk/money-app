@@ -11,12 +11,14 @@ import { FlexModule } from '@angular/flex-layout';
 import { HistoryChartComponent } from './components/history-chart/history-chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { HistoryTableComponent } from './components/history-table/history-table.component';
+import { HistoryDetailsComponent } from './components/history-details/history-details.component';
 
 @NgModule({
   declarations: [
     HistoryComponent,
     HistoryChartComponent,
-    HistoryTableComponent
+    HistoryTableComponent,
+    HistoryDetailsComponent
   ],
   imports: [
     CommonModule,
