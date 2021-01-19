@@ -9,7 +9,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "json-server --watch db.json --port 3000",
-    "dev": "concurrently --kill-others npm start && npm server"
+    "prod:server": "json-server --watch db3030.json --port 3030",
+    "dev": "concurrently  --kill-others \"npm run server\" \"npm run start\"",
+    "prod": "concurrently  --kill-others \"npm run prod:server\" \"npm run start:prod:env\"",
+    "start:prod:env": "ng serve -c production",
+    "build:prod:env": "ng build -c production"
   },
   "private": true,
   "dependencies": {

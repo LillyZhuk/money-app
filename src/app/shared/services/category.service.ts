@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import {Category} from '../models/category';
 import { Observable } from 'rxjs';
 import { ICategory } from '../interfaces/category';
 
@@ -18,14 +17,14 @@ export class CategoryService {
   // }
 
   public getCategories(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>('http://localhost:3000/categories');
+    return this.http.get<ICategory[]>('categories');
   }
 
   // updateCategory(category: Category): Observable<Category> {
   //   return this.put(`categories/${category.id}`, category) ;
   // }
   //
-  getCategoryById(id: number): Observable<ICategory> {
-    return this.http.get<ICategory>(`http://localhost:3000/categories/${id}`);
+  public getCategoryById(id: number): Observable<ICategory> {
+    return this.http.get<ICategory>(`categories/${id}`);
   }
 }

@@ -17,10 +17,10 @@ export class EventsService {
   // }
 
   public getEvents(): Observable<IEvent[]> {
-    return this.http.get<IEvent[]>('http://localhost:3000/events');
+    return this.http.get<IEvent[]>('events');
   }
 
-  getEventById(id: string): Observable<IEvent> {
-    return this.http.get<IEvent>(`http://localhost:3000/events/${id}`);
+  public getEventById(id: string): Observable<IEvent> {
+    return this.http.get<IEvent>(`events/${id}`);
   }
 }

@@ -13,10 +13,10 @@ export class UsersService {
   ) { }
 
   public getUserByEmail(email: string): Observable<User> {
-    return this.http.get<User>(`http://localhost:3000/users?email=${email}`);
+    return this.http.get<User>(`users?email=${email}`);
   }
 
   public createNewUser(user: User): Observable<User> {
-    return this.http.post<User>(`http://localhost:3000/users`, user);
+    return this.http.post<User>(`users`, user);
   }
 }

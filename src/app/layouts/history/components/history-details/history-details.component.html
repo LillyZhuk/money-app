@@ -1,0 +1,32 @@
+<div class="text-center" *ngIf="!isLoaded">Loading...</div>
+<div *ngIf="isLoaded">
+  <div class="title-block">
+    <h3 class="title pull-left" fxLayoutAlign="start center">
+      <button mat-icon-button [routerLink]="['/history']"><mat-icon>keyboard_backspace</mat-icon></button>
+      Страница записи № {{event.id}}
+      <span class="sparkline bar"></span>
+    </h3>
+  </div>
+
+  <div fxLayoutAlign="center center">
+    <mat-card [ngClass]="{'card-success': event.type === 'income', 'card-danger': event.type === 'outcome'}">
+      <mat-card-header fxLayoutAlign="center center" >
+        <mat-card-title *ngIf="event.type === 'income'">Доход</mat-card-title>
+        <mat-card-title *ngIf="event.type === 'outcome'">Расход</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content fxLayout="column"  fxLayoutAlign="center start" >
+        <div class="card-block">
+          <ul>
+            <li>Сумма: <strong>{{event.amount | number: '1.2'}} EUR</strong></li>
+            <li>Категория: <strong>{{category.name}}</strong></li>
+            <li>Комментарий: <strong>{{event.description}}</strong></li>
+          </ul>
+        </div>
+        <div class="card-footer">{{event.date}}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+</div>
